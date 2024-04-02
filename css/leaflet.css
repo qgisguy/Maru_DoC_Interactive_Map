@@ -638,3 +638,39 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+./* Override popup content styles */
+.leaflet-popup-content {
+       white-space: nowrap; /* Ensure inline text */
+       }
+.leaflet-popup-content-wrapper {
+       white-space: nowrap !important; /* Ensure inline text */
+       max-width: none !important; /* Remove max-width restriction */
+       }
+/* Override popup content styles */
+.leaflet-popup-content {
+       white-space: nowrap !important; /* Ensure inline text */
+       overflow: visible !important; /* Allow content to overflow */
+       }
+.leaflet-popup-content-wrapper {
+       white-space: nowrap !important; /* Ensure inline text */
+       max-width: none !important; /* Remove max-width restriction */
+       overflow: visible !important; /* Allow content to overflow */
+       }
+/* Override popup content styles */
+.leaflet-popup-content {
+       white-space: nowrap; /* Ensure inline text */
+       overflow: hidden; /* Hide overflowing content */
+       }
+.leaflet-popup-content-wrapper {
+       white-space: nowrap; /* Ensure inline text */
+       max-width: none !important; /* Remove max-width restriction */
+       overflow: hidden; /* Hide overflowing content */
+       display: inline-block; /* Allow container to elongate horizontally */
+       }
+/* Force the popup to elongate to fit inline text */
+.leaflet-popup-content {
+       width: auto !important; /* Set width to auto */
+       max-width: none !important; /* Remove maximum width */
+}
+
+
