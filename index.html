@@ -38,6 +38,8 @@
         <script src="data/TeWeraForest_4.js"></script>
         <script src="data/MaoriBlocks_5.js"></script>
         <script src="data/DoC_6.js"></script>
+        <script src="data/NamedArchaelogicalSites_7.js"></script>
+        <script src="data/UnnamedArchaeologicalSites_8.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -56,7 +58,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-39.393401153078855,174.24224627236063],[-38.9887484994551,174.83366641381556]]);
+        }).fitBounds([[-39.38363884583068,174.43012499938652],[-39.01665403010734,174.96656050183958]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -216,7 +218,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.75,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(12,206,255,1.0)',
                 interactive: true,
             }
@@ -271,7 +273,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.75,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(77,175,74,1.0)',
                 interactive: true,
             }
@@ -326,7 +328,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.75,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(13,249,1,1.0)',
                 interactive: true,
             }
@@ -381,7 +383,7 @@
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.75,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,255,51,1.0)',
                 interactive: true,
             }
@@ -400,6 +402,145 @@
         });
         bounds_group.addLayer(layer_DoC_6);
         map.addLayer(layer_DoC_6);
+        function pop_NamedArchaelogicalSites_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+    
+            // Create the popup content
+            var popupContent = '<table>';
+    
+            // Check for the presence of "Name5" and "Area5" fields and add them to the popup content if they exist
+            if (feature.properties['Name5'] !== null) {
+                popupContent += '<tr><td>' + feature.properties['Name5'] + '</td></tr>';
+            }
+            if (feature.properties['Area5'] !== null) {
+                popupContent += '<tr><td>' + feature.properties['Area5'] + '</td></tr>';
+            }
+    
+            popupContent += '</table>';
+
+            // Bind the popup content to the layer
+            layer.bindPopup(popupContent, {maxHeight: 400});
+    
+            // Remove empty rows from the popup content
+            var popup = layer.getPopup();
+            var content = popup.getContent();
+            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
+            popup.setContent(updatedContent);
+        }
+
+        function style_NamedArchaelogicalSites_7_0() {
+            return {
+                pane: 'pane_NamedArchaelogicalSites_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(157,9,243,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_NamedArchaelogicalSites_7');
+        map.getPane('pane_NamedArchaelogicalSites_7').style.zIndex = 407;
+        map.getPane('pane_NamedArchaelogicalSites_7').style['mix-blend-mode'] = 'normal';
+        var layer_NamedArchaelogicalSites_7 = new L.geoJson(json_NamedArchaelogicalSites_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_NamedArchaelogicalSites_7',
+            layerName: 'layer_NamedArchaelogicalSites_7',
+            pane: 'pane_NamedArchaelogicalSites_7',
+            onEachFeature: pop_NamedArchaelogicalSites_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_NamedArchaelogicalSites_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_NamedArchaelogicalSites_7);
+        map.addLayer(layer_NamedArchaelogicalSites_7);
+        function pop_UnnamedArchaeologicalSites_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+    
+            // Create the popup content
+            var popupContent = '<table>';
+    
+            // Check for the presence of "Area6" field and add it to the popup content if it exists
+            if (feature.properties['Area6'] !== null) {
+            popupContent += '<tr><td>' + feature.properties['Area6'] + '</td></tr>';
+            }
+    
+            popupContent += '</table>';
+
+            // Bind the popup content to the layer
+            layer.bindPopup(popupContent, {maxHeight: 400});
+    
+            // Remove empty rows from the popup content
+            var popup = layer.getPopup();
+            var content = popup.getContent();
+            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
+            popup.setContent(updatedContent);
+        }
+
+        function style_UnnamedArchaeologicalSites_8_0() {
+            return {
+                pane: 'pane_UnnamedArchaeologicalSites_8',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(2,187,238,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_UnnamedArchaeologicalSites_8');
+        map.getPane('pane_UnnamedArchaeologicalSites_8').style.zIndex = 408;
+        map.getPane('pane_UnnamedArchaeologicalSites_8').style['mix-blend-mode'] = 'normal';
+        var layer_UnnamedArchaeologicalSites_8 = new L.geoJson(json_UnnamedArchaeologicalSites_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_UnnamedArchaeologicalSites_8',
+            layerName: 'layer_UnnamedArchaeologicalSites_8',
+            pane: 'pane_UnnamedArchaeologicalSites_8',
+            onEachFeature: pop_UnnamedArchaeologicalSites_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_UnnamedArchaeologicalSites_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_UnnamedArchaeologicalSites_8);
+        map.addLayer(layer_UnnamedArchaeologicalSites_8);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -412,6 +553,8 @@
             title.addTo(map);
         var baseMaps = {};
         var overlaysTree = [
+            {label: '<img src="legend/UnnamedArchaeologicalSites_8.png" /> Unnamed Archaeological Sites', layer: layer_UnnamedArchaeologicalSites_8},
+            {label: '<img src="legend/NamedArchaelogicalSites_7.png" /> Named Archaelogical Sites', layer: layer_NamedArchaelogicalSites_7},
             {label: '<img src="legend/DoC_6.png" /> DoC', layer: layer_DoC_6},
             {label: '<img src="legend/MaoriBlocks_5.png" /> Maori Blocks', layer: layer_MaoriBlocks_5},
             {label: '<img src="legend/TeWeraForest_4.png" /> Te Wera Forest', layer: layer_TeWeraForest_4},

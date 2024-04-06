@@ -638,22 +638,50 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
-/* Popup text color to white and background to black */
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius: 12px;
+    background-color: #000;
+    color: #fff;
+        }
+
+/* Popup Styles */
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-        background: black;
-        color: white;
-        }
-/* Increase font size of popup content */
-.leaflet-popup-content {
-        font-size: 18px; /* Adjust the font size as needed */
-        }
-/* Reduce opacity of all active layers */
-.leaflet-overlay-pane .leaflet-tile-pane img,
-.leaflet-overlay-pane .leaflet-marker-pane img,
-.leaflet-overlay-pane .leaflet-shadow-pane img,
-.leaflet-overlay-pane .leaflet-image-layer,
-.leaflet-overlay-pane .leaflet-layer {
-        opacity: 0.5; /* Adjust the opacity value as needed */
+    background: black; /* Background color */
+    color: white; /* Text color */
+    font-size: 24px; /* Font size */
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4); /* Optional: box shadow */
+}
+
+/* Popup Close Button Styles */
+.leaflet-container a.leaflet-popup-close-button {
+    color: white; /* Close button color */
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover {
+    color: #999; /* Close button color on hover */
+}
+.leaflet-popup-tip-container {
+    width: 60px; /* Adjust the width as needed */
+    height: 80px;
+    position: absolute;
+    left: 50%;
+    margin-left: -30px; /* Adjust to center the tip horizontally */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.leaflet-popup-tip {
+    width: 10px; /* Adjust the width as needed */
+    height: 17px;
+    padding: 1px;
+    margin: -12px auto 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
 }
 
