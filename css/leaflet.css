@@ -503,7 +503,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-	background: black;
+	background: white;
 	color: #333;
 	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
 	}
@@ -638,39 +638,22 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
-./* Override popup content styles */
+/* Popup text color to white and background to black */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+        background: black;
+        color: white;
+        }
+/* Increase font size of popup content */
 .leaflet-popup-content {
-       white-space: nowrap; /* Ensure inline text */
-       }
-.leaflet-popup-content-wrapper {
-       white-space: nowrap !important; /* Ensure inline text */
-       max-width: none !important; /* Remove max-width restriction */
-       }
-/* Override popup content styles */
-.leaflet-popup-content {
-       white-space: nowrap !important; /* Ensure inline text */
-       overflow: visible !important; /* Allow content to overflow */
-       }
-.leaflet-popup-content-wrapper {
-       white-space: nowrap !important; /* Ensure inline text */
-       max-width: none !important; /* Remove max-width restriction */
-       overflow: visible !important; /* Allow content to overflow */
-       }
-/* Override popup content styles */
-.leaflet-popup-content {
-       white-space: nowrap; /* Ensure inline text */
-       overflow: hidden; /* Hide overflowing content */
-       }
-.leaflet-popup-content-wrapper {
-       white-space: nowrap; /* Ensure inline text */
-       max-width: none !important; /* Remove max-width restriction */
-       overflow: hidden; /* Hide overflowing content */
-       display: inline-block; /* Allow container to elongate horizontally */
-       }
-/* Force the popup to elongate to fit inline text */
-.leaflet-popup-content {
-       width: auto !important; /* Set width to auto */
-       max-width: none !important; /* Remove maximum width */
+        font-size: 18px; /* Adjust the font size as needed */
+        }
+/* Reduce opacity of all active layers */
+.leaflet-overlay-pane .leaflet-tile-pane img,
+.leaflet-overlay-pane .leaflet-marker-pane img,
+.leaflet-overlay-pane .leaflet-shadow-pane img,
+.leaflet-overlay-pane .leaflet-image-layer,
+.leaflet-overlay-pane .leaflet-layer {
+        opacity: 0.5; /* Adjust the opacity value as needed */
 }
-
 
