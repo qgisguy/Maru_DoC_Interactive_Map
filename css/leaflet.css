@@ -1,4 +1,5 @@
 /* required styles */
+/* required styles */
 
 .leaflet-pane,
 .leaflet-tile,
@@ -649,8 +650,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* Popup Styles */
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-    background: black; /* Background color */
-    color: red; /* Text color */
+    background: rgb(56, 15, 15); /* Background color */
+    color: rgb(255, 38, 0); /* Text color */
     font-size: 24px; /* Font size */
     box-shadow: 0 3px 14px rgba(0,0,0,0.4); /* Optional: box shadow */
 }

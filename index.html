@@ -25,6 +25,7 @@
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-scale/dist/leaflet.scale.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
@@ -574,5 +575,9 @@
         lay.addTo(map);
         setBounds();
         </script>
+        <script>
+            L.control.scale({ imperial: false }).addTo(map);
+        </script>
+        
     </body>
 </html>
